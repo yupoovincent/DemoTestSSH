@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="modalCir">
+            Launch demo modal</button>
+        <!-- Modal -->
+        <div class="modal fade" tabindex="-1" id="modalCir" aria-labelledby="modalCirLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Circle</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="radius" placeholder="Input radius">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Circumference</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-target="#modalTri" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getCircle()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalTri" aria-labelledby="modalTriLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Triangle</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="sideA" placeholder="Input side1">
+                        <input type="number" id="sideC" placeholder="Input side2">
+                        <input type="number" id="base" placeholder="Input base">
+                        <input type="number" id="height" placeholder="Input height">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalCir" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-success" data-bs-target="#modalRec" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getTriangle()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalRec" aria-labelledby="modalRecLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Rectangle</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="length" placeholder="Input length">
+                        <input type="number" id="width" placeholder="Input width">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalTri" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-success" data-bs-target="#modalSqu" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getRectangle()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalSqu" aria-labelledby="modalSquLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Square</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="side" placeholder="Input side">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalRec" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-success" data-bs-target="#modalPar" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getSquare()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalPar" aria-labelledby="modalParLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Parallelogram</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="sideA" placeholder="Input side">
+                        <input type="number" id="base" placeholder="Input base">
+                        <input type="number" id="height" placeholder="Input height">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalSqu" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-success" data-bs-target="#modalTrap" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getParallelogram()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalTrap" aria-labelledby="modalTrapLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Trapezoid</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="sideA" placeholder="Input side 1">
+                        <input type="number" id="sideC" placeholder="Input side 2">
+                        <input type="number" id="base1" placeholder="Input top">
+                        <input type="number" id="base2" placeholder="Input bottom">
+                        <input type="number" id= "height" placeholder="Input height">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalPar" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-success" data-bs-target="#modalPen" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getTrapezoid()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalPen" aria-labelledby="modalPenLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Pentagon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="side" placeholder="Input side">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalTrap" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-success" data-bs-target="#modalHex" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getPentagon()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalHex" aria-labelledby="modalHexLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hexagon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="side" placeholder="Input side">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalPen" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-success" data-bs-target="#modalOct" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getHexagon()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalOct" aria-labelledby="modalOctLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Octagon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="side" placeholder="Input side">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalHex" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-success" data-bs-target="#modalK" data-bs-toggle="modal">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="getOctagon()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="modalK" aria-labelledby="modalKLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Kite</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" id="sideA" placeholder="Input side 1">
+                        <input type="number" id="sideB" placeholder="Input side 2">
+                        <input type="number" id="height" placeholder="Input height">
+                        <input type="number" id="width" placeholder="Input width">
+                        <h1 id="area">Area</h1>
+                        <h2 id="perimeter">Perimeter</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#modalOct" data-bs-toggle="modal">Back</button>
+                        <button type="button" class="btn btn-primary" onclick="getKite()">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="calculator.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
